@@ -1,17 +1,17 @@
-defmodule T.MixProject do
+defmodule ExTypeRuntime.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :t,
+      app: :ex_type_runtime,
       version: "0.1.0",
       description: "Minimal runtime support for ExType",
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
       package: package(),
       deps: deps(),
-      name: "T",
-      source_url: "https://github.com/gyson/t"
+      name: "ExTypeRuntime",
+      source_url: "https://github.com/gyson/ex_type_runtime"
     ]
   end
 
@@ -32,7 +32,7 @@ defmodule T.MixProject do
   def package do
     %{
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/gyson/t"}
+      links: %{"GitHub" => "https://github.com/gyson/ex_type_runtime"}
     }
   end
 end
