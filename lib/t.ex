@@ -1,18 +1,44 @@
 defmodule T do
   @moduledoc """
-  Documentation for T.
+  Minimal runtime support for ExType
   """
+
+  # usage: T.&({a, b, c, d})
+  # note: use `any() | x` instead of `any()` to avoid compiler error
+  @type (&x) :: any() | x
+
+  # T.p(Enumerable, x)
+  # note: use `any() | x | y` instead of `any()` to avoid compiler error
+  @type p(x, y) :: any() | x | y
 
   @doc """
-  Hello world.
 
-  ## Examples
+  Inspect type while doing type checking.
 
-      iex> T.hello()
-      :world
+  ## Example
+
+      T.inspect {x, y}
 
   """
-  def hello do
-    :world
+
+  defmacro inspect(x, _opts \\ []) do
+    quote(do: unquote(x))
+  end
+
+  @doc """
+
+  Assert type while doing type checking.
+
+  ## Example
+
+      x = 10
+      T.assert x == integer()
+
+      T.assert x :: integer() # cast x as integer when x is like any()
+
+  """
+
+  defmacro assert(_expr, _message \\ "") do
+    quote(do: nil)
   end
 end
