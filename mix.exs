@@ -5,9 +5,13 @@ defmodule T.MixProject do
     [
       app: :t,
       version: "0.1.0",
+      description: "Minimal runtime support for ExType",
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      package: package(),
+      deps: deps(),
+      name: "T",
+      source_url: "https://github.com/gyson/t"
     ]
   end
 
@@ -21,8 +25,14 @@ defmodule T.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:ex_doc, "~> 0.20.2", only: :dev, runtime: false},
     ]
+  end
+
+  def package do
+    %{
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/gyson/t"}
+    }
   end
 end
