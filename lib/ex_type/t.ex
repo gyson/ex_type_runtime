@@ -1,9 +1,11 @@
-defmodule T do
+defmodule ExType.T do
   @moduledoc """
 
   Minimal runtime support for [`ExType`](https://github.com/gyson/ex_type).
 
-  It brings serveral useful typespecs and macros to
+  It brings serveral useful typespecs and macros.
+
+  Load it via `require ExType.T`.
 
   ### Generic Protocol
 
